@@ -1,0 +1,146 @@
+1. Cree un pseudocódigo que le pida un `precio de producto` al usuario, calcule su descuento y muestre el precio final. 
+
+Inicio
+
+Definir precio, descuento, precio_final;
+
+Pedir "Ingrese el precio del producto:"
+    
+Leer precio
+	
+	si (precio < 100)
+	descuento = precio x 0.02
+		sino (precio >= 100)
+		descuento = precio x 0.10
+
+precio_final = precio - descuento
+
+mostrar ("Este es tu precio con descuento", precio_final)
+
+Fin
+
+------------------------------------------------------------------------------------------------------------------
+
+2. Cree un pseudocódigo que le pida un tiempo en segundos al usuario y calcule si es menor o mayor a 10 minutos. Si es menor, muestre cuantos segundos faltarían para llegar a 10 minutos. Si es mayor, muestre “Mayor”. Si es exactamente igual, muestre “Igual”.
+
+Inicio 
+
+Definir segundos
+
+	si 
+	(segundos < 600)
+	mostrar "Los segundos ingresados son menores a 10 min"
+	mostrar "Se necesitan", 600 - segundos "Segundos para llegar a 10 min"
+	
+
+	SinoSi 
+	(segundos > 600)
+	mostrar "Los segundos introducidos son mayores a 10 min"
+	mostrar "Te sobrepasas por" segundos - 600 "Segundos"
+	
+	Sino
+	mostrar "Los segundos introducidos son igual a 10 min"
+
+Fin
+	
+------------------------------------------------------------------------------------------------------------------
+
+3. Cree un algoritmo que le pida un numero al usuario, y realice una suma de cada numero del 1 hasta ese número ingresado. Luego muestre el resultado de la suma.
+
+Inicio
+    Definir numero
+    Definir suma
+    Definir contador
+
+    Mostrar "Ingrese un número"
+    Pedir numero
+
+    suma = 0
+    contador = 1
+
+    Mientras que (contador <= numero) repetir:
+        suma = suma + contador
+        contador = contador + 1
+    FinMientras
+
+    Mostrar "La suma es: ", suma
+Fin
+
+-------------------------------------------------------------------------------------------------------------------
+
+EJERCICIOS EXTRAS
+1. Cree un algoritmo que le pida 2 números al usuario, los guarde en dos variables distintas (primero y segundo) y los ordene de menor a mayor en dichas variables.
+
+Inicio
+    Definir primero
+    Definir segundo
+    Definir auxiliar
+
+    Mostrar "Ingrese el primer número"
+    Pedir primero
+
+    Mostrar "Ingrese el segundo número"
+    Pedir segundo
+
+    Si (primero > segundo) entonces:
+        auxiliar = primero
+        primero = segundo
+        segundo = auxiliar
+    Fin
+
+    Mostrar "Los números ordenados son:"
+    Mostrar primero
+    Mostrar segundo
+Fin
+
+-----------------------------------------------------------------------------------------------------------------
+
+2. Cree un algoritmo que le pida al usuario una velocidad en km/h y la convierta a m/s. Recuerda que 1 km == 1000m y 1 hora == 60 minutos * 60 segundos
+
+Inicio
+    Definir velocidad_kmh
+    Definir velocidad_ms
+
+    Mostrar "Ingrese la velocidad en km/h"
+    Pedir velocidad_kmh
+
+    velocidad_ms = velocidad_kmh * 1000 / 3600
+
+    Mostrar "La velocidad en m/s es: ", velocidad_ms
+Fin
+
+-------------------------------------------------------------------------------------------------------------------
+
+3. Cree un algoritmo que le pregunte al usuario por el sexo de 6 personas, ingresando 1 si es mujer o 2 si es hombre, y muestre al final el porcentaje de mujeres y hombres.
+
+Inicio
+    Definir contador
+    Definir sexo
+    Definir mujeres
+    Definir hombres
+    Definir porcentaje_mujeres
+    Definir porcentaje_hombres
+
+    mujeres = 0
+    hombres = 0
+    contador = 1
+
+    Mientras que (contador <= 6) repetir:
+        Mostrar "Ingrese el sexo de la persona ", contador, " (1 = mujer, 2 = hombre):"
+        Pedir sexo
+
+        Si (sexo == 1) entonces:
+            mujeres = mujeres + 1
+        Sino
+            hombres = hombres + 1
+        FinSi
+
+        contador = contador + 1
+    FinMientras
+
+    porcentaje_mujeres = (mujeres * 100) / 6
+    porcentaje_hombres = (hombres * 100) / 6
+
+    Mostrar "Porcentaje de mujeres: ", porcentaje_mujeres, "%"
+    Mostrar "Porcentaje de hombres: ", porcentaje_hombres, "%"
+Fin

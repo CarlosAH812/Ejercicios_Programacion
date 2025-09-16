@@ -1,0 +1,6 @@
+
+speed_kmh = float(input("Enter the speed in km/h: "))
+
+speed_ms = speed_kmh * 1000 / 3600
+
+print(f"The speed in m/s is: {speed_ms:.2f}")
