@@ -13,6 +13,11 @@ def create_music_file():
     for song in songs:
         print(f"   - {song.strip()}")
     
+    with open("music_sorted.txt", "w") as m:
+        m.writelines(songs)
+    
+    print(f"\n Sorted songs saved in 'music_sorted.txt'")
+    
     return songs
 
 if __name__ == "__main__":

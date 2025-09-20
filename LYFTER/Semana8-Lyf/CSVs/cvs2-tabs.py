@@ -2,7 +2,7 @@ import csv
 
 file_name = "videogames.csv"
 
-n = int(input("How many videogames do you want to enter? "))
+num_videogames = int(input("How many videogames do you want to enter? "))
 
 with open(file_name, mode="w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f, delimiter='\t')  
@@ -10,7 +10,7 @@ with open(file_name, mode="w", newline="", encoding="utf-8") as f:
     header = ["Name", "Genre", "Developer", "ESRB_Rating"]
     writer.writerow(header)
     
-    for i in range(n):
+    for i in range(num_videogames):
         print(f"\nVideogame {i+1}:")
         name = input("Name: ")
         genre = input("Genre: ")
@@ -19,7 +19,7 @@ with open(file_name, mode="w", newline="", encoding="utf-8") as f:
         
         writer.writerow([name, genre, developer, esrb])
 
-print(f"\n {n} videogames have been saved in the file '{file_name}'.\n")
+print(f"\n {num_videogames} videogames have been saved in the file '{file_name}'.\n")
 
 with open(file_name, mode="r", encoding="utf-8") as f:
     reader = csv.reader(f, delimiter='\t')  

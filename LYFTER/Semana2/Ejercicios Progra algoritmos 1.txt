@@ -1,0 +1,20 @@
+1. Cree un pseudocódigo que le pida un `precio de producto` al usuario, calcule su descuento y muestre el precio final. 
+
+Inicio
+
+Definir precio, descuento, precio_final;
+
+Pedir "Ingrese el precio del producto:"
+    
+Leer precio
+	
+	si (precio < 100)
+	descuento = precio x 0.02
+		sino (precio >= 100)
+		descuento = precio x 0.10
+
+precio_final = precio - descuento
+
+mostrar ("Este es tu precio con descuento", precio_final)
+
+Fin

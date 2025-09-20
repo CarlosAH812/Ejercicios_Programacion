@@ -1,0 +1,25 @@
+EJERCICIOS EXTRAS
+1. Cree un algoritmo que le pida 2 números al usuario, los guarde en dos variables distintas (primero y segundo) y los ordene de menor a mayor en dichas variables.
+
+Inicio
+    Definir primero
+    Definir segundo
+    Definir auxiliar
+
+    Mostrar "Ingrese el primer número"
+    Pedir primero
+
+    Mostrar "Ingrese el segundo número"
+    Pedir segundo
+
+    Si (primero > segundo) entonces:
+        auxiliar = primero
+        primero = segundo
+        segundo = auxiliar
+    Fin
+
+    Mostrar "Los números ordenados son:"
+    Mostrar primero
+    Mostrar segundo
+Fin
+
