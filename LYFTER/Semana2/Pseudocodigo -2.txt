@@ -1,0 +1,21 @@
+2. Cree un pseudocódigo que le pida un tiempo en segundos al usuario y calcule si es menor o mayor a 10 minutos. Si es menor, muestre cuantos segundos faltarían para llegar a 10 minutos. Si es mayor, muestre “Mayor”. Si es exactamente igual, muestre “Igual”.
+
+Inicio 
+
+Definir segundos
+
+	si 
+	(segundos < 600)
+	mostrar "Los segundos ingresados son menores a 10 min"
+	mostrar "Se necesitan", 600 - segundos "Segundos para llegar a 10 min"
+	
+
+	SinoSi 
+	(segundos > 600)
+	mostrar "Los segundos introducidos son mayores a 10 min"
+	mostrar "Te sobrepasas por" segundos - 600 "Segundos"
+	
+	Sino
+	mostrar "Los segundos introducidos son igual a 10 min"
+
+Fin

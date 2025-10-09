@@ -1,0 +1,21 @@
+3. Cree un algoritmo que le pida un numero al usuario, y realice una suma de cada numero del 1 hasta ese número ingresado. Luego muestre el resultado de la suma.
+
+Inicio
+    Definir numero
+    Definir suma
+    Definir contador
+
+    Mostrar "Ingrese un número"
+    Pedir numero
+
+    suma = 0
+    contador = 1
+
+    Mientras que (contador <= numero) repetir:
+        suma = suma + contador
+        contador = contador + 1
+    FinMientras
+
+    Mostrar "La suma es: ", suma
+Fin
+
