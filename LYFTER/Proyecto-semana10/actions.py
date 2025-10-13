@@ -1,25 +1,23 @@
-students = []
 
 def validate_grade(subject_name):
-
+    
     while True:
         try:
             grade = int(input(f"Enter {subject_name} grade (0-100): "))
             
             if 0 <= grade <= 100:
-                return grade  
+                return grade
             else:
                 print("Grade must be between 0 and 100. Please try again.")
         
         except ValueError:
             print("Please enter only numbers.")
 
-def add_student():
-
+def add_student(students):
+    
     print("\n=== Add New Student ===")
     
     name = input("Enter full name: ").strip()
-    
     while not name:
         print("Name cannot be empty.")
         name = input("Enter full name: ").strip()
@@ -28,7 +26,7 @@ def add_student():
     while not section:
         print("Section cannot be empty.")
         section = input("Enter section (e.g., 11B): ").strip()
- 
+    
     print(f"\nEnter grades for {name}:")
     spanish_grade = validate_grade("Spanish")
     english_grade = validate_grade("English") 
@@ -45,11 +43,13 @@ def add_student():
     }
     
     students.append(student)
-
+    
     print(f"\n Student {name} has been added successfully!")
+    
+    return students
 
-def show_all_students():
-   
+def show_all_students(students):
+    
     if not students:
         print("\nNo students have been added yet.")
         return
@@ -66,15 +66,15 @@ def show_all_students():
         
         average = (student['spanish'] + student['english'] + 
                   student['social'] + student['science']) / 4
-        print(f"   Average: {average:.2f}") 
+        print(f"   Average: {average:.2f}")
 
 def calculate_student_average(student):
-    
+   
     return (student['spanish'] + student['english'] + 
             student['social'] + student['science']) / 4
 
-def show_top_3():
-    
+def show_top_3(students):
+   
     if not students:
         print("\nNo students have been added yet.")
         return
@@ -93,7 +93,7 @@ def show_top_3():
         print(f"   Grades: Spanish({student['spanish']}) English({student['english']}) "
               f"Social({student['social']}) Science({student['science']})")
 
-def calculate_general_average():
+def calculate_general_average(students):
    
     if not students:
         print("\nNo students have been added yet.")
@@ -116,8 +116,8 @@ def calculate_general_average():
         avg = calculate_student_average(student)
         print(f"{i}. {student['name']}: {avg:.2f}")
 
-def add_multiple_students():
-   
+def add_multiple_students(students):
+    
     while True:
         try:
             num_students = int(input("\nHow many students do you want to add? "))
@@ -132,6 +132,9 @@ def add_multiple_students():
     
     for i in range(num_students):
         print(f"\n--- Student {i + 1} of {num_students} ---")
-        add_student()
+        
+        students = add_student(students)
     
     print(f"\n All {num_students} students have been added successfully!")
+    
+    return students

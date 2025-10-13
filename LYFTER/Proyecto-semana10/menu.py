@@ -1,3 +1,4 @@
+
 from actions import add_multiple_students, show_all_students, show_top_3, calculate_general_average
 from data import export_to_csv, import_from_csv
 
@@ -29,43 +30,42 @@ def get_user_choice():
         except ValueError:
             print("Please enter a valid number.")
 
-def process_menu_choice(choice):
+def process_menu_choice(choice, students):
     
     if choice == 1:
-        add_multiple_students()
+        students = add_multiple_students(students)
     
     elif choice == 2:
-        show_all_students()
+        show_all_students(students)
     
     elif choice == 3:
-        show_top_3()
+        show_top_3(students)
     
     elif choice == 4:
-        calculate_general_average()
+        calculate_general_average(students)
     
     elif choice == 5:
-        export_to_csv()
+        export_to_csv(students)
     
     elif choice == 6:
-        import_from_csv()
+        students = import_from_csv(students)
     
     elif choice == 7:
         print("\n Thank you for using the Student Management System!")
         print("Goodbye!")
-        return False  
+        return students, False
     
-    return True
+    return students, True
 
 def main_menu():
-
     print(" Welcome to the Student Management System!")
+    
+    students = []
     
     continue_program = True
     
     while continue_program:
-        
         show_menu()
-        
         user_choice = get_user_choice()
         
-        continue_program = process_menu_choice(user_choice)
+        students, continue_program = process_menu_choice(user_choice, students)
