@@ -2,38 +2,36 @@
 import csv
 import os
 
-CSV_FILENAME = "students_data.csv"
-
-def export_to_csv(students):
-   
+def export_to_csv(students, csv_filename="students_data.csv"):
+    
     if not students:
         print("\nNo students to export. Please add students first.")
         return
     
     try:
-        with open(CSV_FILENAME, 'w', newline='', encoding='utf-8') as file:
+        with open(csv_filename, 'w', newline='', encoding='utf-8') as file:
             fieldnames = ['name', 'section', 'spanish', 'english', 'social', 'science']
             writer = csv.DictWriter(file, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(students)
         
-        print(f"\n Successfully exported {len(students)} student(s) to '{CSV_FILENAME}'")
-        print(f"File location: {os.path.abspath(CSV_FILENAME)}")
+        print(f"\n Successfully exported {len(students)} student(s) to '{csv_filename}'")
+        print(f"File location: {os.path.abspath(csv_filename)}")
     
     except Exception as e:
         print(f"\n Error exporting data: {e}")
 
-def import_from_csv(students):
+def import_from_csv(students, csv_filename="students_data.csv"):
     
-    if not os.path.exists(CSV_FILENAME):
-        print(f"\n File '{CSV_FILENAME}' not found.")
+    if not os.path.exists(csv_filename):
+        print(f"\n File '{csv_filename}' not found.")
         print("Please export data first or make sure the file exists in the same directory.")
-        return students 
+        return students
     
     try:
         imported_count = 0
         
-        with open(CSV_FILENAME, 'r', encoding='utf-8') as file:
+        with open(csv_filename, 'r', encoding='utf-8') as file:
             reader = csv.DictReader(file)
             
             if students:
@@ -41,7 +39,6 @@ def import_from_csv(students):
                 choice = input("Do you want to (R)eplace all or (A)ppend to existing data? (R/A): ").upper().strip()
                 
                 if choice == 'R':
-                    
                     students = []
                     print("Existing data cleared.")
                 elif choice == 'A':
@@ -82,20 +79,23 @@ def import_from_csv(students):
         return students
     
     except Exception as e:
-        print(f"\n Error importing data: {e}")
-        return students
+        print(f"\n✗ Error importing data: {e}")
+        return students 
 
-def show_file_info():
-    
-    if os.path.exists(CSV_FILENAME):
-        file_size = os.path.getsize(CSV_FILENAME)
+def show_file_info(csv_filename="students_data.csv"):
+    """
+    Función para mostrar información del archivo CSV
+    CAMBIO: csv_filename ahora es un parámetro con valor por defecto
+    """
+    if os.path.exists(csv_filename):
+        file_size = os.path.getsize(csv_filename)
         print(f"\n File info:")
-        print(f"Name: {CSV_FILENAME}")
+        print(f"Name: {csv_filename}")
         print(f"Size: {file_size} bytes")
-        print(f"Location: {os.path.abspath(CSV_FILENAME)}")
+        print(f"Location: {os.path.abspath(csv_filename)}")
         
         try:
-            with open(CSV_FILENAME, 'r', encoding='utf-8') as file:
+            with open(csv_filename, 'r', encoding='utf-8') as file:
                 lines = file.readlines()
                 print(f"Lines in file: {len(lines)}")
                 if lines:
@@ -103,4 +103,4 @@ def show_file_info():
         except:
             print("Could not read file content")
     else:
-        print(f"\n File '{CSV_FILENAME}' does not exist")
+        print(f"\n File '{csv_filename}' does not exist")
